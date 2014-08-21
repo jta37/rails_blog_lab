@@ -1,0 +1,13 @@
+<h1><%= @post.title %></h1>
+
+<h2>Comments:</h2>
+
+<% if @comments.length > 0 %>
+<ul>
+  <% @comments.each do |blip| %>
+  <li>blip.title</li>
+  <% end %>
+</ul>
+<% else %>
+<p>none</p>
+<% end %>
