@@ -5,7 +5,7 @@
 <% if @comments.length > 0 %>
 <ul>
   <% @comments.each do |blip| %>
-  <li>blip.title</li>
+  <li><%=blip.title%></li>
   <% end %>
 </ul>
 <% else %>
