@@ -1,11 +1,9 @@
-<form method="POST" action="/posts">
-  <label for="author">Author</label>
-  <input id="author" type="text" name="post[author]">
-  <label for="title">Title</label>
-  <input id="title" type="text" name="post[title]">
-  <textarea name="post[description]"></textarea>
-  <label for="tags">Tags</label>
-  <input id="tags" type="text" name="tags">
-  <%= token_tag form_authenticity_token %>
-  <button>Save</button>
-</form>
+<%= form_for @post do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description %>
+  <%= text_field_tag :tags, nil, placeholder: "Enter tags" %>
+  <%= f.submit "Save" %>
+<% end %>

@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     @tags = @post.tags
   end
   def new
+    @post = Post.new
   end
   def create
     post_data = params[:post].permit(:author, :title, :description)
