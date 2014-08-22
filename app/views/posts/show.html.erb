@@ -5,7 +5,7 @@
 <% if @tags.length > 0 %>
 <p>Tags:
 <% @tags.each do |tag| %>
-<a href="/tags/<%=tag.id%>"><%=tag.name%></a>
+<%= link_to tag.name, tag %>
 <% end %>
 </p>
 <% end %>

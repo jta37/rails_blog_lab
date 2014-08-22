@@ -2,6 +2,6 @@
 
 <ul>
   <% @tag.posts.each do |post| %>
-  <li><a href="/posts/<%=post.id%>"><%=post.author%>: <%=post.title%></a></li>
+  <li><%= link_to post.title, post %></a></li>
   <% end %>
 </ul>
