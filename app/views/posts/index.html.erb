@@ -1,19 +1,6 @@
-<h1>Posts</h1>
-
-<table>
-  <tr>
-    <th>Author</th>
-    <th>Title</th>
-    <th>Link</th>
-  </tr>
-  <% @all_posts.each do |post| %>
-  <tr>
-    <td><%= post.author %></td>
-    <td><%= post.title %></td>
-    <td><a href="/posts/<%=post.id%>">Show</a>
-  </tr>
-  <% end %>
-</table>
-
-<br>
-<a href="/posts/new">New Post</a>
+<% @all_posts.each do |post| %>
+<h2><a href="/posts/<%=post.id%>"><%= post.title %></a></h2>
+<p>written by <%= post.author %> on <%= post.updated_at.to_formatted_s(:long) %></p>
+<p><%= post.description %></p>
+<p><a href="/posts/<%=post.id%>/comments"><%= post.comments.length %> comments</a></p>
+<% end %>
