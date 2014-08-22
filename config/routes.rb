@@ -6,6 +6,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get 'tags', to: 'tags#index'
-  get 'tags/:id', to: 'tags#show'
+  resources :tags
 end
