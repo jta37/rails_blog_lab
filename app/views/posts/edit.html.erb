@@ -1,13 +1,9 @@
-<form method="POST" action="/posts/<%=@post.id%>">
-  <label for="author">Author</label>
-  <input id="author" type="text" name="post[author]" value="<%=@post.author%>">
-  <label for="title">Title</label>
-  <input id="title" type="text" name="post[title]" value="<%=@post.title%>">
-  <textarea name="post[description]"><%=@post.description%></textarea>
-  <label for="tags">Tags</label>
-  <input id="tags" type="text" name="tags"
-         value="<%=@post.tags.map(&:name).join(', ')%>">
-  <input type="hidden" name="_method" value="PUT">
-  <%= token_tag form_authenticity_token %>
-  <button>Update</button>
-</form>
+<%= form_for @post do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description %>
+  <%= text_field_tag :tags, @post.tags.map(&:name).join(', ') %>
+  <%= f.submit "Update" %>
+<% end %>
