@@ -12,12 +12,5 @@
 
 <p><%= @post.description %></p>
 
-<form method="GET" action="/posts/<%=@post.id%>/edit">
-  <%= token_tag form_authenticity_token %>
-  <button>Update</button>
-</form>
-<form method="POST" action="/posts/<%=@post.id%>">
-  <input type="hidden" name="_method" value="DELETE">
-  <%= token_tag form_authenticity_token %>
-  <button>Delete</button>
-</form>
+<%= button_to "Update", edit_post_path(@post), method: :get %>
+<%= button_to "Delete", @post, method: :delete %>
