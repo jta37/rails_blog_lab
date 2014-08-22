@@ -1,6 +1,6 @@
 <% @all_posts.each do |post| %>
-<h2><a href="/posts/<%=post.id%>"><%= post.title %></a></h2>
+<h2><%= link_to post.title, post_path(post) %></h2>
 <p>written by <%= post.author %> on <%= post.updated_at.to_formatted_s(:long) %></p>
 <p><%= post.description %></p>
-<p><a href="/posts/<%=post.id%>/comments"><%= post.comments.length %> comments</a></p>
+<p><%= link_to "#{post.comments.length} comments", post_comments_path(post) %></p>
 <% end %>
