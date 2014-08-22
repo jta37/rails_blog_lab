@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     end
     redirect_to "/posts/" + id_data
   end
-  def delete
+  def destroy
     post = Post.find_by_id(params[:id])
     if post
       post.destroy
