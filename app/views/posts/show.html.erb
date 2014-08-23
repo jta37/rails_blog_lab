@@ -2,6 +2,7 @@
 
 <p>Author: <%= @post.author %></p>
 
+<!-- Show all tags -->
 <% if @tags.length > 0 %>
 <p>Tags:
 <% @tags.each do |tag| %>
@@ -10,7 +11,18 @@
 </p>
 <% end %>
 
+<!-- Description -->
 <p><%= @post.description %></p>
 
+<!-- Update and Delete buttons -->
 <%= button_to "Update", edit_post_path(@post), method: :get %>
 <%= button_to "Delete", @post, method: :delete %>
+
+<!-- Show all comments -->
+<% if @post.comments.length > 0 %>
+<h2><%= link_to "Comments", post_comments_path(@post) %></h2>
+<% @post.comments.each do |blip| %>
+<p><em><%= blip.title %></em> - <%= blip.body %></p>
+<% end %>
+<% end %>
+
